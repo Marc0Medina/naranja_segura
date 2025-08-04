@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class InicioAppScreen extends StatelessWidget {
   const InicioAppScreen({super.key});
@@ -86,37 +87,38 @@ class InicioAppScreen extends StatelessWidget {
                 ),
 
                 // Imagen grande en la parte superior central
-                Positioned(
-                  left: 80,
-                  top: 111,
+                Align(
+                  alignment: Alignment.topCenter,
                   child: Container(
-                    width: 252,
-                    height: 251,
-                    decoration: ShapeDecoration(
-                      image: const DecorationImage(
-                        image: NetworkImage("https://placehold.co/252x251"),
-                        fit: BoxFit.fill,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
+                    margin: const EdgeInsets.only(top: 90), // 🔽 Aquí decides qué tan abajo
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: SvgPicture.asset(
+                      'assets/images/logoNS.svg',
+                      width: size.width * 0.60,
+                      height: size.width * 0.60,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
+
+
 
                 // Botones en la parte baja responsive
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 50),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 135),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         // Botón PUNTOS NARANJAS
                         Container(
                           width: size.width * 0.6,
-                          height: 64,
-                          margin: const EdgeInsets.only(bottom: 16),
+                          height: 55,
+                          margin: const EdgeInsets.only(bottom: 60),
                           decoration: ShapeDecoration(
                             color: const Color(0xFFFFA300),
                             shape: RoundedRectangleBorder(
@@ -128,7 +130,7 @@ class InicioAppScreen extends StatelessWidget {
                               'PUNTOS NARANJAS',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 22,
+                                fontSize: 20,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
                               ),
@@ -138,8 +140,8 @@ class InicioAppScreen extends StatelessWidget {
 
                         // Botón EMERGENCIA
                         Container(
-                          width: size.width * 0.35,
-                          height: size.width * 0.35,
+                          width: size.width * 0.48,
+                          height: size.width * 0.48,
                           decoration: const ShapeDecoration(
                             color: Color(0xFFEE4C3B),
                             shape: OvalBorder(),
@@ -165,7 +167,7 @@ class InicioAppScreen extends StatelessWidget {
 
                 // Texto '..' arriba
                 Positioned(
-                  left: 174,
+                  left: (size.width / 2) - 33, // centrado manual
                   top: 30.17,
                   child: Container(
                     width: 64,
