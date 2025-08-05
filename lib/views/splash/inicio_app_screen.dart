@@ -45,16 +45,31 @@ class InicioAppScreen extends StatelessWidget {
                             width: size.width,
                             height: 52,
                             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                            child: const Text(
-                              '9:30',
-                              style: TextStyle(
-                                color: Color(0xFF1D1B20),
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w500,
-                                height: 1.43,
-                                letterSpacing: 0.14,
-                              ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  '9:30',
+                                  style: TextStyle(
+                                    color: Color(0xFF1D1B20),
+                                    fontSize: 14,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.43,
+                                    letterSpacing: 0.14,
+                                  ),
+                                ),
+                                Row(
+                                  children: const [
+                                    Icon(Icons.wifi, size: 18, color: Color(0xFF1D1B20)), // WiFi
+                                    SizedBox(width: 6),
+                                    Icon(Icons.network_cell, size: 18, color: Color(0xFF1D1B20)), // Señal
+                                    SizedBox(width: 6),
+                                    Icon(Icons.battery_full, size: 18, color: Color(0xFF1D1B20)), // Batería
+                                    SizedBox(width: 6),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
