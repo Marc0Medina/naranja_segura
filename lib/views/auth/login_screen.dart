@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class SesionNoIniciada extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

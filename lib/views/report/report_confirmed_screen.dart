@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
+
 class Reportar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../emergency/emergencia_screen.dart';
 
 class InicioAppScreen extends StatelessWidget {
   const InicioAppScreen({super.key});
@@ -154,22 +155,30 @@ class InicioAppScreen extends StatelessWidget {
                         ),
 
                         // Botón EMERGENCIA
-                        Container(
-                          width: size.width * 0.48,
-                          height: size.width * 0.48,
-                          decoration: const ShapeDecoration(
-                            color: Color(0xFFEE4C3B),
-                            shape: OvalBorder(),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'EMERGENCIA',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w700,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Emergencia()),
+                            );
+                          },
+                          child: Container(
+                            width: size.width * 0.48,
+                            height: size.width * 0.48,
+                            decoration: const ShapeDecoration(
+                              color: Color(0xFFEE4C3B),
+                              shape: OvalBorder(),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'EMERGENCIA',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ),
