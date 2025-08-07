@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import '../splash/inicio_app_screen.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SesionNoIniciada extends StatelessWidget {
+  const SesionNoIniciada({super.key}); // 👈 constructor const agregado
+
   @override
   Widget build(BuildContext context) {
     return Column(
+
+
+
       children: [
         Container(
           width: 412,

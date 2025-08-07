@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../splash/inicio_app_screen.dart'; // Corregido
+import '../splash/inicio_app_screen.dart';
 
 class Emergencia extends StatelessWidget {
   const Emergencia({super.key});
