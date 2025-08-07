@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../emergency/emergencia_screen.dart';
 import '../auth/login_screen.dart';
+import '../home/danger_routes_screen.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class InicioAppScreen extends StatefulWidget {
@@ -22,9 +24,7 @@ class _InicioAppScreenState extends State<InicioAppScreen> {
 
     _pages = [
       _pantallaPersonalizada(),
-      Center(
-          child: Text('Pantalla 2',
-              style: TextStyle(fontSize: 24, color: Colors.white))),
+      Rutaspeligro(),
       SesionNoIniciada(), // Asegúrate que esta clase está importada y definida
     ];
   }
