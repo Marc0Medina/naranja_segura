@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../auth/login_screen.dart';
+import '../auth/confirm_email_screen.dart';
 
 class Registro extends StatelessWidget {
   const Registro({super.key});
@@ -121,27 +122,42 @@ class Registro extends StatelessWidget {
               _buildCampo('Teléfono', 409),
               _buildCampo('Contraseña', 493),
 
-              // Botón de verificación
+              // Dentro del Stack, después de los campos:
               Positioned(
-                left: 26,
-                top: 797,
-                child: GestureDetector(
-                  onTap: () {
-                    // Acción al presionar
-                  },
-                  child: const Text(
-                    '             Verificar correo',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.83,
-                      letterSpacing: 0.24,
+                left: 0,
+                right: 0,
+                bottom: 40, // separación desde abajo
+                child: Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFF55E5E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
+                      elevation: 4,
+                    ),
+                    onPressed: () {
+                      print("Verificar correo presionado");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => Confirmacioncorreo()),
+                      );
+                    },
+                    child: const Text(
+                      'Verificar correo',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
+
+
 
               // Botón de volver (opcional)
               Positioned(
