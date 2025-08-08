@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naranja_segura/views/auth/login_screen.dart';
 
 class Confirmacioncorreo extends StatelessWidget {
   const Confirmacioncorreo({super.key});
@@ -87,6 +88,11 @@ class Confirmacioncorreo extends StatelessWidget {
                   onPressed: () {
                     // TODO: acción cuando presionen "Listo"
                     print('Botón Listo presionado');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SesionNoIniciada()),
+                    );
                   },
                   child: const Text(
                     'Listo',

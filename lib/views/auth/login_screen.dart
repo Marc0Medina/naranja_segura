@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../splash/inicio_app_screen.dart';
 import '../auth/register_screen.dart';
-import '../../theme/app_colors.dart'; // Ajusta el path
+import '../../theme/app_colors.dart';
+import '../home/home_screen.dart';
+
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -97,6 +99,10 @@ class SesionNoIniciada extends StatelessWidget {
                 onPressed: () {
                   // TODO: lógica de inicio de sesión
                   print("Iniciar sesión presionado");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MenuOpciones()),
+                  );
                 },
                 child: const Text(
                   'Iniciar sesión',
