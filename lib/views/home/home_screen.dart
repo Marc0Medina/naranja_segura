@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:naranja_segura/views/auth/login_screen.dart';
+import '../home/user_profile_screen.dart';
+
 
 class MenuOpciones extends StatelessWidget {
   const MenuOpciones({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class MenuOpciones extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+
             DrawerHeader(
               decoration: BoxDecoration(color: secondaryColor),
               child: Center(
@@ -42,12 +46,26 @@ class MenuOpciones extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.search, color: Colors.black),
-              title: Text('Buscar', style: TextStyle(color: Colors.black)),
+              leading: Icon(Icons.person, color: Colors.black),
+              title: Text('Mi Cuenta', style: TextStyle(color: Colors.black)),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AjustesCuenta()),
+                );
               },
             ),
+            ListTile(
+              leading: Icon(Icons.logout, color: Colors.black),
+              title: Text('Cerrar Sesión', style: TextStyle(color: Colors.black)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SesionNoIniciada()),
+                );
+              },
+            ),
+
             // Agrega más opciones si quieres
           ],
         ),
@@ -69,10 +87,17 @@ class MenuOpciones extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.teal,
+        color: primaryColor,
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 56,
+                  backgroundColor: const Color(0xFFEADDFF),
+                  child: const Icon(Icons.person, size: 60, color: Colors.black),
+                ),
+              ),
               const SizedBox(height: 40),
               _buildOrangeButton('Puntos Naranja', secondaryColor),
               const SizedBox(height: 16),

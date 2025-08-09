@@ -1,514 +1,116 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class Ajustescuenta extends StatelessWidget {
+class AjustesCuenta extends StatelessWidget {
+  const AjustesCuenta({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 412,
-          height: 892,
-          clipBehavior: Clip.antiAlias,
-          decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                top: 0,
-                child: Container(
-                  width: 412,
-                  height: 892,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF805EB7),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 8,
-                        strokeAlign: BorderSide.strokeAlignOutside,
-                        color: const Color(0xFFCAC4D0) /* Schemes-Outline-Variant */,
-                      ),
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 0,
-                        top: 0,
-                        child: Container(
-                          width: 412,
-                          height: 52,
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                          child: Stack(
-                            children: [
-                              Text(
-                                '9:30',
-                                style: TextStyle(
-                                  color: const Color(0xFF1D1B20) /* Schemes-On-Surface */,
-                                  fontSize: 14,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.43,
-                                  letterSpacing: 0.14,
-                                ),
-                              ),
-                              Container(width: 17, height: 17),
-                              Container(width: 8, height: 15, child: Stack()),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 0,
-                        top: 868,
-                        child: Container(
-                          width: 412,
-                          height: 24,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                left: 152,
-                                top: 10,
-                                child: Container(
-                                  width: 108,
-                                  height: 4,
-                                  decoration: ShapeDecoration(
-                                    color: const Color(0xFF1D1B20) /* Schemes-On-Surface */,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 23,
-                top: 165,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text(
-                    ' Mis Datos',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.83,
-                      letterSpacing: 0.24,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 174,
-                top: 723,
-                child: SizedBox(
-                  width: 73,
-                  height: 62,
-                  child: Text(
-                    'Editar',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.83,
-                      letterSpacing: 0.24,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 274,
-                top: 76,
-                child: Container(
-                  width: 112,
-                  height: 112,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEADDFF) /* Schemes-Primary-Container */,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                  child: Stack(),
-                ),
-              ),
-              Positioned(
-                left: 16,
-                top: 93,
-                child: SizedBox(
-                  width: 275,
-                  height: 55,
-                  child: Text(
-                    'Mi Cuenta',
-                    style: TextStyle(
-                      color: const Color(0xFFFF9500),
-                      fontSize: 32,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.62,
-                      letterSpacing: 0.32,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 222,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 16,
-                top: 279,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text(
-                    ' Mis contactos de emergencia',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.83,
-                      letterSpacing: 0.24,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 23,
-                top: 336,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 24,
-                top: 408,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 23,
-                top: 480,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 16,
-                top: 45,
-                child: Container(
-                  width: 48,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
-                  child: Stack(),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 541,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyle(
-                            color: const Color(0xFF090909),
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Números de emergencia',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 598,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 24,
-                top: 664,
-                child: Container(
-                  width: 361,
-                  height: 49,
-                  decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 598,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Emergencias: ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '911',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            textDecoration: TextDecoration.underline,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 24,
-                top: 663,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' Policia: ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '113 5000',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            textDecoration: TextDecoration.underline,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 476,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Alberto, 443-364-2435',
-                          style: TextStyle(
-                            color: Colors.black.withValues(alpha: 0.56),
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 24,
-                top: 404,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Raquel, 443-345-5678',
-                          style: TextStyle(
-                            color: Colors.black.withValues(alpha: 0.56),
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 23,
-                top: 332,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Teresa, 443-723-2345',
-                          style: TextStyle(
-                            color: Colors.black.withValues(alpha: 0.56),
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 218,
-                child: SizedBox(
-                  width: 378,
-                  height: 57,
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Fernanda, 18',
-                          style: TextStyle(
-                            color: Colors.black.withValues(alpha: 0.56),
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0.83,
-                            letterSpacing: 0.24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
+    return Scaffold(
+      backgroundColor: const Color(0xFF805EB7),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF805EB7),
+        elevation: 0,
+        title: const Text(
+          "Mi Cuenta",
+          style: TextStyle(
+            color: Color(0xFFFF9500),
+            fontFamily: 'Poppins',
+            fontSize: 32,
+            fontWeight: FontWeight.w500,
           ),
         ),
-      ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: CircleAvatar(
+                radius: 56,
+                backgroundColor: const Color(0xFFEADDFF),
+                child: const Icon(Icons.person, size: 60, color: Colors.black),
+              ),
+            ),
+            const SizedBox(height: 20),
+            const SectionTitle("Mis Datos"),
+            buildInfoBox("Verónica, 25"),
+            const SizedBox(height: 20),
+            const SectionTitle("Mis contactos de emergencia"),
+            buildInfoBox("Teresa, 443-723-2345"),
+            buildInfoBox("Raquel, 443-345-5678"),
+            buildInfoBox("Alberto, 443-364-2435"),
+            const SizedBox(height: 20),
+            const SectionTitle("Números de emergencia"),
+            buildInfoBox("Emergencias: 911", underline: true),
+            buildInfoBox("Policía: 113 5000", underline: true),
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                ),
+                child: const Text(
+                  "Editar",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildInfoBox(String text, {bool underline = false}) {
+    return Container(
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFD9D9D9),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black.withOpacity(0.56),
+          fontSize: 20,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+          decoration:
+          underline ? TextDecoration.underline : TextDecoration.none,
+        ),
+      ),
+    );
+  }
+}
+
+class SectionTitle extends StatelessWidget {
+  final String text;
+  const SectionTitle(this.text, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: const TextStyle(
+        fontSize: 24,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
+      ),
     );
   }
 }
