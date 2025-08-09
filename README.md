@@ -1,14 +1,14 @@
 # 🍊 Naranja Segura
 
-**Naranja Segura** es un proyecto de aplicación móvil desarrollado como parte del **Reto de Tecnología Cívica 2025 en Morelia**, cuyo objetivo es brindar apoyo inmediato a mujeres, adolescentes y niñas en situaciones de riesgo mientras transitan por la ciudad o usan transporte público.
+**Naranja Segura** es un proyecto de aplicación móvil desarrollado como parte del **Reto de Tecnología Cívica 2025 en Morelia**, cuyo objetivo es brindar apoyo inmediato en situaciones de riesgo al transitar por la ciudad o usar transporte público.
 
-El propósito actual del proyecto es **desarrollar Naranja Segura de forma profesional** para contar con un producto comprobable que forme parte de mi portafolio y CV.
+El propósito actual del proyecto es contar con un producto que forme parte de un portafolio profesional.
 
 ---
 
 ## 🚩 ¿Qué problema resuelve?
 
-Naranja Segura busca **reducir la vulnerabilidad de mujeres en espacios públicos** proporcionando herramientas tecnológicas que:
+Naranja Segura busca **reducir la vulnerabilidad de personas en espacios públicos** proporcionando herramientas tecnológicas que:
 - Faciliten la localización de lugares seguros en casos de emergencia.
 - Permitan compartir la ubicación en tiempo real con contactos de confianza.
 - Ayuden a crear conciencia social mediante reportes de incidentes y rutas peligrosas.
