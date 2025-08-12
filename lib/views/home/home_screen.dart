@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naranja_segura/views/auth/login_screen.dart';
 import '../home/user_profile_screen.dart';
+import '../home/danger_routes_screen.dart';
+import '../report/report_start_screen.dart';
 
 
 class MenuOpciones extends StatelessWidget {
@@ -23,7 +25,6 @@ class MenuOpciones extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-
             DrawerHeader(
               decoration: BoxDecoration(color: secondaryColor),
               child: Center(
@@ -65,18 +66,19 @@ class MenuOpciones extends StatelessWidget {
                 );
               },
             ),
-
-            // Agrega más opciones si quieres
           ],
         ),
       ),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('¡No estás sola! Estamos aquí :)',
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500)),
+        title: Text(
+          '¡No estás sola! Estamos aquí :)',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(Icons.menu, color: onSurfaceColor),
@@ -152,9 +154,28 @@ class MenuOpciones extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              _buildOrangeButton('Rutas con reportes recientes', secondaryColor),
+              _buildOrangeButton(
+                'Rutas con reportes recientes',
+                secondaryColor,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Rutaspeligro()),
+                  );
+                },
+              ),
               const SizedBox(height: 16),
-              _buildOrangeButton('Reportar violencia/ Acoso', secondaryColor, height: 75.2),
+              _buildOrangeButton(
+                'Reportar violencia/ Acoso',
+                secondaryColor,
+                height: 75.2,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Reportar()),
+                  );
+                },
+              ),
               const SizedBox(height: 16),
               _buildOrangeButton('SEMMUJERIS: Cursos, actividades', secondaryColor),
               const SizedBox(height: 50),
@@ -175,7 +196,9 @@ class MenuOpciones extends StatelessWidget {
   }
 
   Widget _buildOrangeButton(String text, Color color,
-      {double width = double.infinity, double height = 64}) {
+      {double width = double.infinity,
+        double height = 64,
+        VoidCallback? onTap}) {
     return Container(
       width: width,
       height: height,
@@ -184,17 +207,25 @@ class MenuOpciones extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(10),
       ),
-      alignment: Alignment.centerLeft,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w500,
-          letterSpacing: 0.2,
-          height: 1,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.2,
+                height: 1,
+              ),
+            ),
+          ),
         ),
       ),
     );

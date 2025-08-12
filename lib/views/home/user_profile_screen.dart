@@ -1,8 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 
-class AjustesCuenta extends StatelessWidget {
+class AjustesCuenta extends StatefulWidget {
   const AjustesCuenta({super.key});
+
+  @override
+  State<AjustesCuenta> createState() => _AjustesCuentaState();
+}
+
+class _AjustesCuentaState extends State<AjustesCuenta> {
+  bool editar = false;
+
+  final nombreController = TextEditingController(text: "Verónica");
+  final edadController = TextEditingController(text: "25");
+
+  final contacto1Controller = TextEditingController(text: "Teresa, 443-723-2345");
+  final contacto2Controller = TextEditingController(text: "Raquel, 443-345-5678");
+  final contacto3Controller = TextEditingController(text: "Alberto, 443-364-2435");
+
+  // Lista editable de números de emergencia
+  List<TextEditingController> numerosEmergenciaControllers = [
+    TextEditingController(text: "Emergencias: 911"),
+    TextEditingController(text: "Policía: 113 5000"),
+  ];
+
+  @override
+  void dispose() {
+    nombreController.dispose();
+    edadController.dispose();
+    contacto1Controller.dispose();
+    contacto2Controller.dispose();
+    contacto3Controller.dispose();
+    for (var c in numerosEmergenciaControllers) {
+      c.dispose();
+    }
+    super.dispose();
+  }
+
+  void _agregarNumeroEmergencia() {
+    setState(() {
+      numerosEmergenciaControllers.add(TextEditingController());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,28 +77,93 @@ class AjustesCuenta extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const SectionTitle("Mis Datos"),
-            buildInfoBox("Verónica, 25"),
+            editar
+                ? _campoEditable(nombreController, "Nombre")
+                : buildInfoBox("${nombreController.text}, ${edadController.text}"),
+            if (editar)
+              _campoEditable(edadController, "Edad", keyboardType: TextInputType.number),
             const SizedBox(height: 20),
             const SectionTitle("Mis contactos de emergencia"),
-            buildInfoBox("Teresa, 443-723-2345"),
-            buildInfoBox("Raquel, 443-345-5678"),
-            buildInfoBox("Alberto, 443-364-2435"),
+            editar
+                ? _campoEditable(contacto1Controller, "Contacto 1")
+                : buildInfoBox(contacto1Controller.text),
+            editar
+                ? _campoEditable(contacto2Controller, "Contacto 2")
+                : buildInfoBox(contacto2Controller.text),
+            editar
+                ? _campoEditable(contacto3Controller, "Contacto 3")
+                : buildInfoBox(contacto3Controller.text),
             const SizedBox(height: 20),
             const SectionTitle("Números de emergencia"),
-            buildInfoBox("Emergencias: 911", underline: true),
-            buildInfoBox("Policía: 113 5000", underline: true),
+            editar
+                ? Column(
+              children: [
+                ...numerosEmergenciaControllers.map((controller) => Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                      labelText: "Número de emergencia",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                  ),
+                )),
+                const SizedBox(height: 12),
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text("Agregar número"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
+                  ),
+                  onPressed: _agregarNumeroEmergencia,
+                ),
+              ],
+            )
+                : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: numerosEmergenciaControllers
+                  .map((c) => buildInfoBox(c.text, underline: true))
+                  .toList(),
+            ),
             const SizedBox(height: 30),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    if (editar) {
+                      // Filtrar y eliminar campos vacíos
+                      numerosEmergenciaControllers.removeWhere(
+                            (controller) => controller.text.trim().isEmpty,
+                      );
+
+                      // Si quedan números, cambia a modo vista, sino mantiene modo edición
+                      if (numerosEmergenciaControllers.isNotEmpty) {
+                        editar = false;
+                      } else {
+                        // Opcional: muestra un mensaje de error si todos están vacíos
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Por favor, agrega al menos un número válido')),
+                        );
+                      }
+                    } else {
+                      editar = true;
+                    }
+                  });
+                },
+
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   padding:
                   const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 ),
-                child: const Text(
-                  "Editar",
-                  style: TextStyle(
+                child: Text(
+                  editar ? "Guardar" : "Editar",
+                  style: const TextStyle(
                     fontSize: 24,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
@@ -69,6 +172,23 @@ class AjustesCuenta extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _campoEditable(TextEditingController controller, String label,
+      {TextInputType keyboardType = TextInputType.text}) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: TextField(
+        controller: controller,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          labelText: label,
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         ),
       ),
     );
@@ -89,8 +209,7 @@ class AjustesCuenta extends StatelessWidget {
           fontSize: 20,
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
-          decoration:
-          underline ? TextDecoration.underline : TextDecoration.none,
+          decoration: underline ? TextDecoration.underline : TextDecoration.none,
         ),
       ),
     );

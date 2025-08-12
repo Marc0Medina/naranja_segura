@@ -1,231 +1,179 @@
 import 'package:flutter/material.dart';
+import '../report/report_start_screen.dart';
+import '../report/general_report_screen.dart';
+import '../report/route_report_screen.dart';
 
 class Reportar extends StatelessWidget {
+  const Reportar({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 412,
-          height: 892,
-          clipBehavior: Clip.antiAlias,
-          decoration: ShapeDecoration(
-            color: const Color(0xFF462973),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
+    final size = MediaQuery
+        .of(context)
+        .size;
+
+    return Scaffold(
+      backgroundColor: const Color(0xFF462973),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF805EB7),
+        elevation: 0,
+        title: const Text(
+          'Reporta',
+          style: TextStyle(
+            color: Color(0xFFCAC4D0),
+            fontSize: 40,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
           ),
-          child: Stack(
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: const Color(0xFF805EB7),
+            border: Border.all(
+              width: 4,
+              color: const Color(0xFFCAC4D0),
+            ),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Column(
             children: [
-              Positioned(
-                left: 0,
-                top: 0,
-                child: Container(
-                  width: 412,
-                  height: 892,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF805EB7),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 8,
-                        strokeAlign: BorderSide.strokeAlignOutside,
-                        color: const Color(0xFFCAC4D0) /* Schemes-Outline-Variant */,
+              // Barra superior
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 24, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      '9:30',
+                      style: TextStyle(
+                        color: Color(0xFF1D1B20),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.14,
                       ),
-                      borderRadius: BorderRadius.circular(18),
                     ),
-                  ),
-                  child: Stack(
+                    Row(
+                      children: [
+                        Icon(Icons.signal_cellular_alt, size: 17,
+                            color: Colors.black),
+                        const SizedBox(width: 4),
+                        Icon(Icons.battery_full, size: 17, color: Colors.black),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              // Contenido
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
                     children: [
-                      Positioned(
-                        left: 0,
-                        top: 0,
-                        child: Container(
-                          width: 412,
-                          height: 52,
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                          child: Stack(
-                            children: [
-                              Text(
-                                '9:30',
-                                style: TextStyle(
-                                  color: const Color(0xFF1D1B20) /* Schemes-On-Surface */,
-                                  fontSize: 14,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.43,
-                                  letterSpacing: 0.14,
-                                ),
-                              ),
-                              Container(width: 17, height: 17),
-                              Container(width: 8, height: 15, child: Stack()),
-                            ],
-                          ),
+
+                      const SizedBox(height: 0),
+                      const Text(
+                        'Alerta de violencia\nde género contra las mujeres.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xFFFF9500),
+                          fontSize: 32,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Positioned(
-                        left: 0,
-                        top: 868,
-                        child: Container(
-                          width: 412,
-                          height: 24,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                left: 152,
-                                top: 10,
-                                child: Container(
-                                  width: 108,
-                                  height: 4,
-                                  decoration: ShapeDecoration(
-                                    color: const Color(0xFF1D1B20) /* Schemes-On-Surface */,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Es un conjunto de acciones gubernamentales de emergencia para enfrentar y erradicar la violencia feminicida y/o la existencia de un agravio comparado que impida el ejercicio pleno de los derechos humanos de las mujeres en un territorio determinado.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Si fuiste víctima de violencia de género, puedes levantar un reporte anónimo.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
                         ),
+                      ),
+                      const SizedBox(height: 40),
+                      _reporteButton(
+                        'Reporte en Transporte Público',
+                            () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ReportarViolenciaRuta()),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      _reporteButton(
+                        'Reporte General',
+                            () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ReportarViolencia()),
+                          );
+                        },
                       ),
                     ],
                   ),
                 ),
               ),
-              Positioned(
-                left: 121,
-                top: 30,
-                child: SizedBox(
-                  width: 193,
-                  height: 70,
-                  child: Text(
-                    'Reporta',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 40,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.50,
-                      letterSpacing: 0.40,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 5,
-                top: 41,
+
+              // Barra inferior
+              Container(
+                height: 24,
+                alignment: Alignment.center,
                 child: Container(
-                  width: 48,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
-                  child: Stack(),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 79,
-                child: SizedBox(
-                  width: 352,
-                  height: 193,
-                  child: Text(
-                    'Alerta de violencia\nde genero contra las mujeres.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 32,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0.94,
-                      letterSpacing: 0.32,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 25,
-                top: 100,
-                child: SizedBox(
-                  width: 352,
-                  height: 483,
-                  child: Text(
-                    ' Es un conjunto de acciones gubernamentales de emergencia para enfrentar y erradicar la violencia feminicida YO la existencia de un agravio comparado que impida el ejercicio pleno de los derechos humanos de las mujeres en un territorio determinado',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 1,
-                      letterSpacing: 0.20,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 19,
-                top: 446,
-                child: SizedBox(
-                  width: 374,
-                  height: 85,
-                  child: Text(
-                    'Si fuiste victima de violencia de genero, puedes levantar un reporte anónimo. ',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 1,
-                      letterSpacing: 0.20,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 124,
-                top: 720,
-                child: SizedBox(
-                  width: 179,
-                  height: 39,
-                  child: Text(
-                    'Reporte general',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 1,
-                      letterSpacing: 0.20,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 114,
-                top: 577,
-                child: SizedBox(
-                  width: 195,
-                  height: 39,
-                  child: Text(
-                    'Reporte en transporte publico',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 1,
-                      letterSpacing: 0.20,
-                    ),
+                  width: 108,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1D1B20),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
               ),
             ],
           ),
         ),
-      ],
+      ),
+    );
+  }
+
+  Widget _reporteButton(String text, VoidCallback onPressed) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.deepPurple.shade700,
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
     );
   }
 }
