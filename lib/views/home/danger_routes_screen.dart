@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Rutaspeligro extends StatelessWidget {
+  const Rutaspeligro({super.key});
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -42,7 +44,7 @@ class Rutaspeligro extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
               color: const Color(0xFFFF9500),
-              width: 8,
+              width: 3,
               style: BorderStyle.solid,
             ),
           ),
@@ -128,18 +130,7 @@ class Rutaspeligro extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  Center(
-                    child: Container(
-                      width: 108,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1D1B20),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
+
                 ],
               ),
             ),

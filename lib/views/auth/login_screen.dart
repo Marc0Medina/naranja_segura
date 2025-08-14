@@ -89,7 +89,7 @@ class SesionNoIniciada extends StatelessWidget {
               // Botón de inicio de sesión
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFF55E5E),
+                  backgroundColor: Colors.deepPurple.shade700,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -116,7 +116,7 @@ class SesionNoIniciada extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('¿No tienes una cuenta?'),
+                  const Text('¿No tienes una cuenta?',style: TextStyle(color: Colors.white),),
                   TextButton(
                     onPressed: () {
                       // TODO: navegación a registro
@@ -128,7 +128,7 @@ class SesionNoIniciada extends StatelessWidget {
                     },
                     child: const Text(
                       'Regístrate',
-                      style: TextStyle(color: Color(0xFFF55E5E)),
+                      style: TextStyle(color: Color(0xFFFF9500)),
                     ),
                   ),
                 ],

@@ -232,18 +232,6 @@ class _ReportarViolenciaState extends State<ReportarViolencia> {
               ),
             ),
 
-            Container(
-              height: 24,
-              alignment: Alignment.center,
-              child: Container(
-                width: 108,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1D1B20),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
           ],
         ),
       ),

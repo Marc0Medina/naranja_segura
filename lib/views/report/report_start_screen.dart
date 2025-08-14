@@ -37,7 +37,7 @@ class Reportar extends StatelessWidget {
           decoration: BoxDecoration(
             color: const Color(0xFF805EB7),
             border: Border.all(
-              width: 4,
+              width: 0,
               color: const Color(0xFFCAC4D0),
             ),
             borderRadius: BorderRadius.circular(18),
@@ -45,32 +45,6 @@ class Reportar extends StatelessWidget {
           child: Column(
             children: [
               // Barra superior
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      '9:30',
-                      style: TextStyle(
-                        color: Color(0xFF1D1B20),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 0.14,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.signal_cellular_alt, size: 17,
-                            color: Colors.black),
-                        const SizedBox(width: 4),
-                        Icon(Icons.battery_full, size: 17, color: Colors.black),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
 
               // Contenido
               Expanded(
@@ -132,19 +106,7 @@ class Reportar extends StatelessWidget {
                 ),
               ),
 
-              // Barra inferior
-              Container(
-                height: 24,
-                alignment: Alignment.center,
-                child: Container(
-                  width: 108,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1D1B20),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),

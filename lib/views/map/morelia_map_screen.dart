@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Mapagrande extends StatelessWidget {
+  const Mapagrande({super.key});
+
+
   @override
   Widget build(BuildContext context) {
     return Column(

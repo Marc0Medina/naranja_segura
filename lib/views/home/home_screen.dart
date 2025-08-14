@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:naranja_segura/views/auth/login_screen.dart';
+import 'package:naranja_segura/views/map/morelia_map_screen.dart';
 import '../home/user_profile_screen.dart';
 import '../home/danger_routes_screen.dart';
 import '../report/report_start_screen.dart';
+import '../splash/inicio_app_screen.dart';
 
+// 📌 Agrega aquí las pantallas de Puntos Naranja, Más Cercano y SEMMUJERIS
+import '../map/zone_map_screen.dart';
+// import '../puntos/mas_cercano_screen.dart';
+// import '../semmujeris/semmujeris_screen.dart';
 
 class MenuOpciones extends StatelessWidget {
   const MenuOpciones({Key? key}) : super(key: key);
 
   final Color primaryColor = const Color(0xFF805EB7);
   final Color secondaryColor = const Color(0xFFFFA300);
-  final Color borderColor = const Color(0xFFCAC4D0);
+  final Color borderColor = Colors.black;
   final Color onSurfaceColor = const Color(0xFF1D1B20);
 
   @override
@@ -20,7 +26,7 @@ class MenuOpciones extends StatelessWidget {
         backgroundColor: primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.horizontal(right: Radius.circular(18)),
-          side: BorderSide(color: borderColor, width: 8),
+          side: BorderSide(color: borderColor, width: 3),
         ),
         child: ListView(
           padding: EdgeInsets.zero,
@@ -62,7 +68,7 @@ class MenuOpciones extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SesionNoIniciada()),
+                  MaterialPageRoute(builder: (context) => InicioAppScreen()),
                 );
               },
             ),
@@ -101,53 +107,42 @@ class MenuOpciones extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              _buildOrangeButton('Puntos Naranja', secondaryColor),
+
+              _buildOrangeButton(
+                'Puntos Naranja',
+                secondaryColor,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Rutaspeligro()),
+                  );
+                },
+              ),
+
+
+
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        height: 48,
-                        decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'Más cercano',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 0.14,
-                            height: 1.43,
-                          ),
-                        ),
+                      child: _buildSmallButton(
+                        'Más cercano',
+                        secondaryColor,
+                        onTap: () {
+                          // Navigator.push(context, MaterialPageRoute(builder: (_) => const MasCercanoScreen()));
+                        },
                       ),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
-                      child: Container(
-                        height: 48,
-                        decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'Ver todos',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 0.14,
-                            height: 1.43,
-                          ),
-                        ),
+                      child: _buildSmallButton(
+                        'Ver todos',
+                        secondaryColor,
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const Mapagrande()));
+                        },
                       ),
                     ),
                   ],
@@ -178,16 +173,7 @@ class MenuOpciones extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               _buildOrangeButton('SEMMUJERIS: Cursos, actividades', secondaryColor),
-              const SizedBox(height: 50),
-              Container(
-                width: 108,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: onSurfaceColor,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              const SizedBox(height: 20),
+
             ],
           ),
         ),
@@ -230,4 +216,29 @@ class MenuOpciones extends StatelessWidget {
       ),
     );
   }
+  Widget _buildSmallButton(String text, Color color, {VoidCallback? onTap}) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(10),
+      onTap: onTap,
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.14,
+          ),
+        ),
+      ),
+    );
+  }
+
 }
