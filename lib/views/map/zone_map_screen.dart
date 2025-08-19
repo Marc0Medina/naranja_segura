@@ -134,17 +134,16 @@ class PuntosCercanos extends StatelessWidget {
 
           // Botón destacado
           Center(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFF9500), // naranja
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                padding:
-                const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                // Aquí tu acción, por ejemplo abrir Google Maps o link
+              },
+              icon: const Icon(
+                Icons.directions_run, // este es el icono de un mundo
+                color: Colors.white,
+                size: 29,
               ),
-              onPressed: () {},
-              child: const Text(
+              label: const Text(
                 "Ve al punto naranja!",
                 style: TextStyle(
                   fontSize: 18,
@@ -152,6 +151,14 @@ class PuntosCercanos extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orange,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
               ),
             ),
           )
