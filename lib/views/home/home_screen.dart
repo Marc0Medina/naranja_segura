@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:naranja_segura/views/auth/login_screen.dart';
 import 'package:naranja_segura/views/map/morelia_map_screen.dart';
+import 'package:naranja_segura/views/map/zone_map_screen.dart';
 import '../home/user_profile_screen.dart';
 import '../home/danger_routes_screen.dart';
 import '../report/report_start_screen.dart';
@@ -131,7 +132,7 @@ class MenuOpciones extends StatelessWidget {
                         'Más cercano',
                         secondaryColor,
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (_) => const MasCercanoScreen()));
+                           Navigator.push(context, MaterialPageRoute(builder: (_) => const PuntosCercanos()));
                         },
                       ),
                     ),
@@ -141,7 +142,7 @@ class MenuOpciones extends StatelessWidget {
                         'Ver todos',
                         secondaryColor,
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => const Mapagrande()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const MapaGrande()));
                         },
                       ),
                     ),
